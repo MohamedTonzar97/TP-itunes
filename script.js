@@ -4,19 +4,27 @@ let output = document.querySelector("#output");
 
 
 button.addEventListener('click', (e) => {
+    e.preventDefault();
     getDataItunes()
 })
 
 
 function getDataItunes() {
-    let url = 'https://itunes.apple.com/search?term='+input.value
-    let cors = 'https://cors-anywhere.herokuapp.com/'
-    fetch(cors+url)
-        .then(data => data.json())
-        .then(json => {
-         console.log(json)
-         let finalHTML = ''
-         json.results.forEach(song => {
+    var myHeaders = new Headers();
+    var myInit = { method: 'GET',
+                headers: myHeaders,
+                cache: 'default' };
+
+    let url = 'https://itunes.apple.com/search?term=' + input.value
+    
+    fetch(url, myInit)
+        .then(data => {
+            return data.json()
+        })
+        .then(json => { 
+
+        let finalHTML = ''
+        json.results.forEach(song => {
              finalHTML +=
              ` <div class="card" style="width: 18rem;">
              <div class="card-body">
@@ -31,6 +39,6 @@ function getDataItunes() {
             })
             output.innerHTML=finalHTML
         })
-            .catch(error => console.error() )
+        .catch(error => console.error() )
 
     }
