@@ -12,6 +12,7 @@ button.addEventListener('click', (e) => {
 function getDataItunes() {
     var myHeaders = new Headers();
     var myInit = { method: 'GET',
+                mode : "cors",
                 headers: myHeaders,
                 cache: 'default' };
 
@@ -26,14 +27,15 @@ function getDataItunes() {
         let finalHTML = ''
         json.results.forEach(song => {
              finalHTML +=
-             ` <div class="card" style="width: 18rem;">
+             `
+             <div class="card" style="width: 18rem;">
              <div class="card-body">
                <img src="${song.artworkUrl100}" class="img-fluid" alt="Responsive image">
                <h6 class="card-subtitle mb-2 text-muted">${song.artistName}</h6>
                <p class="card-text">${song.trackCensoredName}</p>
                <audio controls>
-               <source src="${song.previewUrl}" type="audio/mpeg" />
-           </audio>
+                    <source src="${song.previewUrl}" type="audio/mpeg" />
+               </audio>
              </div>
            </div>`      
             })
