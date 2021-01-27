@@ -1,3 +1,6 @@
 # TP-itunes
 
-Premierement 
+Premiere commande : node server 
+
+Deuxiéme commande : npx serve
+
