@@ -12,7 +12,6 @@ button.addEventListener('click', (e) => {
 function getDataItunes() {
     var myHeaders = new Headers();
     var myInit = { method: 'GET',
-                mode : "cors",
                 headers: myHeaders,
                 cache: 'default' };
 
