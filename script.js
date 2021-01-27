@@ -10,14 +10,10 @@ button.addEventListener('click', (e) => {
 
 
 function getDataItunes() {
-    var myHeaders = new Headers();
-    var myInit = { method: 'GET',
-                headers: myHeaders,
-                cache: 'default' };
 
-    let url = 'https://itunes.apple.com/search?term=' + input.value
+    let url = 'https://thingproxy.freeboard.io/fetch/https://itunes.apple.com/search?term=' + input.value
     
-    fetch(url, myInit)
+    fetch(url)
         .then(data => {
             return data.json()
         })
