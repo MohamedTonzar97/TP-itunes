@@ -11,7 +11,7 @@ button.addEventListener('click', (e) => {
 
 function getDataItunes() {
 
-    let url = 'https://thingproxy.freeboard.io/fetch/https://itunes.apple.com/search?term=' + input.value
+    let url = 'http://localhost:8085/itunes?term=' + input.value
     
     fetch(url)
         .then(data => {
