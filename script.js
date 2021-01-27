@@ -8,7 +8,6 @@ button.addEventListener('click', (e) => {
     getDataItunes()
 })
 
-
 function getDataItunes() {
 
     let url = 'http://localhost:8085/itunes?term=' + input.value
@@ -23,7 +22,12 @@ function getDataItunes() {
         json.results.forEach(song => {
              finalHTML +=
              `
-             <div class="card" style="width: 18rem;">
+             <div class="card" style="width: 22rem;
+                margin: auto;
+                width: 60%;
+                border: 3px solid rgb(84, 205, 245);
+                padding: 10px;
+              }">
              <div class="card-body">
                <img src="${song.artworkUrl100}" class="img-fluid" alt="Responsive image">
                <h6 class="card-subtitle mb-2 text-muted">${song.artistName}</h6>
